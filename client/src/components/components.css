@@ -1,0 +1,41 @@
+.sign-up-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+}
+
+.sign-up-form {
+    width: 300px; /* Width of the form */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%; /* Full width of the input fields */
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box; /* Includes padding in width calculation */
+}
+
+button {
+    width: 100%; /* Full width of the button */
+    padding: 10px;
+    background-color: #3498db; /* Button color */
+    color: #fff; /* Text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #2980b9; /* Darker color on hover */
+}

@@ -5,6 +5,9 @@ const mongoURI = "mongodb://localhost:27017/Compylzer";
 const { generateFile } = require('./generateFile');
 const Job = require('./models/Job');
 const { addJobToQueue } = require('./jobQueue');
+const { UserRouter }  = require('./routes/user');
+const cookieParser = require('cookie-parser');
+const dotenv = require('dotenv');
 
 
 const connectToMongo = async () => {
@@ -29,13 +32,19 @@ const connectToMongo = async () => {
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: ["http://localhost:3000"],
+    credentials: true
+}));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(cookieParser())
+app.use('/auth', UserRouter);
 
 app.get("/", (req,res) => {
     return res.json({"Port":"Listening on 8008"});
 });
+
 
 app.post("/run",async (req,res) => {
     const { language = "py", code } = req.body;
